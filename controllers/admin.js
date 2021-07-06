@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
         const machine = await db.Machine.find({});
         const soda = await db.Soda.find({});
         context = {soda: soda, machine: machine}
-        return res.render()
+        return res.render("admin/stock", context);
     } catch(err) {
         return res.send(err)
     }
-})
+});
 
 module.exports = router;
