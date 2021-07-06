@@ -46,3 +46,15 @@ app.use(function(req,res,next){
 });
 
 const authRequired = require("./middleware/authRequired");
+
+// user controller
+app.get("/", controllers.user);
+
+// machine controller
+app.get("/machine", controllers.machine);
+
+// soda controller
+app.get("/soda", authRequired, controllers.soda)
+
+/* == Server Listener == */
+app.listen(PORT)
