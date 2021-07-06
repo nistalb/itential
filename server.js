@@ -3,6 +3,7 @@
  const methodOverride = require("method-override");
  const session = require("express-session");
  const MongoStore = require("connect-mongo");
+ const bodyParser = require("body-parser");
 
 /* == Internal Modules == */ 
 const controllers = require("./controllers");
@@ -14,9 +15,12 @@ require("dotenv").config();
 /* == Configuration == */
 const PORT = process.env.PORT;
 
+app.set("view engine", "ejs");
+
 /* == Middleware == */
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(express.json());
 
 // session
 app.use(
@@ -41,20 +45,25 @@ app.use(function(req,res,next){
 
 // user authentication middleware
 app.use(function(req,res,next){
-    app.locals.user = req.session.currentUser;
-    next();
+     app.locals.user = req.session.currentUser;
+     next();
 });
 
 const authRequired = require("./middleware/authRequired");
 
 // machine controller
-app.use("/", controllers.machine);
+app.use("/machine", controllers.machine);
 
 // user controller
 app.use("/user", controllers.user);
 
 // soda controller
-app.use("/soda", authRequired, controllers.soda)
+// NOTE add authrequired back in
+app.use("/soda", controllers.soda)
+
+// admin
+// NOTE add authrequired back in
+app.use("/admin", controllers.admin)
 
 /* == Server Listener == */
 app.listen(PORT)

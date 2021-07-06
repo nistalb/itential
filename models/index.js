@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // connections string
 const dburl = "mongodb://localhost:27017/itentialdb"
