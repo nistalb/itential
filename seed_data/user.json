@@ -1,0 +1,4 @@
+{"_id": 1, "group": "admin", "password": "admin", "members":["John", "Sally"]}
+{"_id": 2, "group": "engineering", "password": "engineering", "members":["John", "Sally"]}
+{"_id": 3, "group": "sales", "password": "sales", "members":["John", "Sally"]}
+{"_id": 4, "group": "marketing", "password": "marketing", "members":["John", "Sally"]}
