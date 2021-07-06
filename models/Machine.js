@@ -5,8 +5,8 @@ const machineSchema = new mongoose.Schema({
     location: String,
     soda: [ {
         id: {type: mongoose.Schema.Types.ObjectId, ref: "Soda"},
-        qty: Number,
-        promo: {isPromo: Boolean, cost: Number}
+        qty: { type: Number, required: true},
+        promo: {isPromo: Boolean, cost: Number, startDate: Date, endDate: Date}
     }]
 },
 {timestamps: true}
