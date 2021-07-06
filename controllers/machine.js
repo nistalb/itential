@@ -9,8 +9,10 @@ const db = require("../models");
 router.get("/machine", async(req, res) => {
 
     try {
-        const machine = await db.Machine.find({});
-        res.send("Hello World")
+        const machine = await db.Machine.find({})
+        res.send("Hello Machine World")
+        console.log(machine)
+        return machine
     } catch (err) {
         return res.send(err);
     }
