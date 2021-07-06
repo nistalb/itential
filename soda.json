@@ -1,0 +1,4 @@
+{ "_id":1, "name": "Fizz" , "description": "An effervescent fruity experience with hints of grape and coriander.", "cost": 1, "maxQty": 100}
+{ "_id":2, "name": "Pop" , "description": "An explosion of flavor that will knock your socks off!", "cost": 1, "maxQty": 100}
+{ "_id":3, "name": "Cola" , "description": "A basic no nonsense cola that is the perfect pick me up for any occasion.", "cost": 1, "maxQty": 200}
+{ "_id":4, "name": "Mega Pop" , "description": "Not for the faint of heart.  So flavorful and so invigorating, it should probably be illegal.", "cost": 1, "maxQty": 50}

@@ -1,4 +1,4 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 // create schema for soda documents
 const sodaSchema = new mongoose.Schema({

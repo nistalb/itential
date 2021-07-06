@@ -2,7 +2,7 @@
  const express = require("express");
  const methodOverride = require("method-override");
  const session = require("express-session");
- const MongoStore = require("connect-mongo")("session");
+ const MongoStore = require("connect-mongo");
 
 /* == Internal Modules == */ 
 const controllers = require("./controllers");
@@ -21,8 +21,8 @@ app.use(methodOverride("_method"));
 // session
 app.use(
     session({
-        store: new MongoStore({
-            url: "mongodb://localhost:27017/itentialdb"
+        store: MongoStore.create({
+            mongoUrl: "mongodb://localhost:27017/itentialdb"
         }),
         secret: process.env.SECRET,
         resave: false,
@@ -47,14 +47,14 @@ app.use(function(req,res,next){
 
 const authRequired = require("./middleware/authRequired");
 
-// user controller
-app.get("/", controllers.user);
-
 // machine controller
-app.get("/machine", controllers.machine);
+app.use("/", controllers.machine);
+
+// user controller
+app.use("/user", controllers.user);
 
 // soda controller
-app.get("/soda", authRequired, controllers.soda)
+app.use("/soda", authRequired, controllers.soda)
 
 /* == Server Listener == */
 app.listen(PORT)
