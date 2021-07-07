@@ -1,6 +1,5 @@
  /* == External Modules == */
  const express = require("express");
- const methodOverride = require("method-override");
  const session = require("express-session");
  const MongoStore = require("connect-mongo");
  const bodyParser = require("body-parser");
@@ -15,12 +14,19 @@ require("dotenv").config();
 /* == Configuration == */
 const PORT = process.env.PORT;
 
-app.set("view engine", "ejs");
+
 
 /* == Middleware == */
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(express.urlencoded({extended: true}));
-app.use(methodOverride("_method"));
 app.use(express.json());
+
+
 
 // session
 app.use(
