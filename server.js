@@ -51,14 +51,10 @@ app.use(function(req,res,next){
 
 const authRequired = require("./middleware/authRequired");
 
-// machine controller
-app.use("/machine", controllers.machine);
-
 // user controller
 app.use("/user", controllers.user);
 
 // soda controller
-// NOTE add authrequired back in
 app.use("/soda", controllers.soda)
 
 // admin
