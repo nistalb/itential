@@ -1,4 +1,4 @@
-{ "name": "Fizz" , "description": "An effervescent fruity experience with hints of grape and coriander.", "cost": 1, "maxQty": 100}
-{ "name": "Pop" , "description": "An explosion of flavor that will knock your socks off!", "cost": 1, "maxQty": 100}
-{ "name": "Cola" , "description": "A basic no nonsense cola that is the perfect pick me up for any occasion.", "cost": 1, "maxQty": 200}
-{ "name": "Mega Pop" , "description": "Not for the faint of heart.  So flavorful and so invigorating, it should probably be illegal.", "cost": 1, "maxQty": 50}
+{ "name": "Fizz" , "description": "An effervescent fruity experience with hints of grape and coriander.", "cost": 1, "maxQty": 100, "vendQty": 0}
+{ "name": "Pop" , "description": "An explosion of flavor that will knock your socks off!", "cost": 1, "maxQty": 100, "vendQty": 0}
+{ "name": "Cola" , "description": "A basic no nonsense cola that is the perfect pick me up for any occasion.", "cost": 1, "maxQty": 200, "vendQty": 0}
+{ "name": "Mega Pop" , "description": "Not for the faint of heart.  So flavorful and so invigorating, it should probably be illegal.", "cost": 1, "maxQty": 50, "vendQty": 0}

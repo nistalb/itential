@@ -5,7 +5,7 @@ const db = require("../models");
 
 // routes
 
-// stock machine
+// machine index
 router.get("/", async (req, res) => {
 
     try{
@@ -19,3 +19,8 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+// // add soda to machine
+// router.put("/:machine_id/:soda_id", async (req, res) => {
+//     try {}
+// })

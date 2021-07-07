@@ -24,6 +24,6 @@ mongoose.connection.on("disconnected", function(){
 
 module.exports= {
     Soda: require("./Soda"),
-    Machine: require("./Machine"),
+    // Machine: require("./Machine"),
     User: require("./User")
 };
