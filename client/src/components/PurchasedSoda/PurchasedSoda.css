@@ -1,0 +1,28 @@
+#purchaseChute {
+    background-color: rgb(56, 55, 55);
+    width: 200px;
+    height: 80px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 27px 29px 29px 8px rgba(0,0,0,0.39); 
+    box-shadow: inset 27px 29px 29px 8px rgba(0,0,0,0.39);
+}
+
+#soda {
+    background-color: white;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#soda p {
+    margin: 0 auto;
+    margin-top: 30px;
+}

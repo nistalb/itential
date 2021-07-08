@@ -1,0 +1,14 @@
+#credit {
+    font-family: 'DotGothic16', sans-serif;
+    background-color: #A8C64E;
+    height: 35px;
+    width: 100px;
+    line-height: 35px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 50px;
+    -webkit-box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);
+    box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);
+}

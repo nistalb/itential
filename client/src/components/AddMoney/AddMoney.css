@@ -1,0 +1,10 @@
+#money {
+    background-color: red;
+    background-image: url("./dollar.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 220px;
+    height: 80px;
+    cursor: pointer;
+    padding-top: 100px;
+}
