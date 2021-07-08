@@ -1,4 +1,0 @@
-{ "group": "admin", "password": "admin", "members":["John", "Sally"]}
-{ "group": "engineering", "password": "engineering", "members":["John", "Sally"]}
-{ "group": "sales", "password": "sales", "members":["John", "Sally"]}
-{ "group": "marketing", "password": "marketing", "members":["John", "Sally"]}

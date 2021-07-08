@@ -23,6 +23,5 @@ mongoose.connection.on("disconnected", function(){
 });
 
 module.exports= {
-    Soda: require("./Soda"),
-    User: require("./User")
+    Soda: require("./Soda")
 };
