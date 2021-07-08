@@ -8,35 +8,50 @@ const db = require("../models");
 // get all soda
 router.get("/", async (req, res) => {
     
-    const sodas = await db.Soda.find({});
-    res.json({sodas});
-    
+    try {
+        const sodas = await db.Soda.find({});
+        res.json({sodas});
+    } catch(err) {
+        return res.send(err)
+    }
 });
 
 // create soda
 router.post("/", async (req, res) => {
        
     try {
-        newSoda = await db.Soda.create(req.body);
+        const newSoda = await db.Soda.create(req.body);
         return res.json({newSoda});
-    } catch (err) {
+    } catch(err) {
         return res.send(err);
     };
 });
+
+// update soda
+router.put("/:name", async (req, res) => {
+
+    try {
+        const updatedSoda = await db.Soda.findOneAndUpdate({name:req.params.name}, req.body, {new: true});
+        return res.json({updatedSoda});
+    } catch(err) {
+        return res.send(err);
+    };
+});
+
 
 // add to vendQty
 router.put("/:name/add", (req, res) => {
     const {qty} = req.body;
 
-    db.Soda.find({name:req.params.name})
+    db.Soda.findOne({name:req.params.name})
     .exec(function(err, foundSoda){
         if (err) return res.send(err);
         
-        const totalSoda = foundSoda[0].vendQty + qty;
+        const totalSoda = foundSoda.vendQty + qty;
 
-        if (totalSoda <= foundSoda[0].maxQty) {
-            foundSoda[0].vendQty += qty;
-            foundSoda[0].save();
+        if (totalSoda <= foundSoda.maxQty) {
+            foundSoda.vendQty += qty;
+            foundSoda.save();
             res.json({foundSoda});
         } else {
             tooMuchSoda = totalSoda - foundSoda[0].maxQty;
@@ -48,19 +63,30 @@ router.put("/:name/add", (req, res) => {
 // remove a soda from vend machine
 router.put("/:name/remove", (req, res) => {
 
-    db.Soda.find({name:req.params.name})
+    db.Soda.findOne({name:req.params.name})
     .exec(function(err, foundSoda){
         if (err) return res.send(err);
         
-        const sodaQty = foundSoda[0].vendQty -= 1;
+        const sodaQty = foundSoda.vendQty -= 1;
 
         if (sodaQty < 0) {
             res.json({message: 'Sorry, We are out of that flavor'})
         } else {
-            foundSoda[0].save();
+            foundSoda.save();
             res.json({foundSoda})
         }
     });
+});
+
+// delete soda
+router.delete("/:name", async (req, res) => {
+
+    try {
+        const deletedSoda = await db.Soda.findOneAndDelete({name:req.params.name})
+        return res.json({deletedSoda})
+    } catch(err) {
+        return res.send(err);
+    };
 });
 
 module.exports = router;
