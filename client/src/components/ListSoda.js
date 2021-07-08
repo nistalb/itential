@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListSoda = ({sodas}) => {
+const ListSoda = ({sodas, purchaseSoda}) => {
     let allSoda = sodas.sodas
     
     return (
@@ -9,7 +9,7 @@ const ListSoda = ({sodas}) => {
                 allSoda && allSoda.length > 0 ? (
                     (allSoda.map(soda => {
                      return (
-                        <li key={soda._id}>{soda.name} {soda.cost} {soda.vendQty}</li>
+                        <li key={soda._id} onClick={() => purchaseSoda(soda.name)}>{soda.name} {soda.cost} {soda.vendQty}</li>
                          )
                        })
                     )

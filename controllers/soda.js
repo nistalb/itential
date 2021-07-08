@@ -55,7 +55,7 @@ router.put("/:name/remove", (req, res) => {
         const sodaQty = foundSoda[0].vendQty -= 1;
 
         if (sodaQty < 0) {
-            res.send({message: 'Soda machine is empty'})
+            res.json({message: 'Sorry, We are out of that flavor'})
         } else {
             foundSoda[0].save();
             res.json({foundSoda})
