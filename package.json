@@ -1,7 +1,7 @@
 {
   "name": "itential",
   "version": "1.0.0",
-  "description": "Building a virtual soda vending maching using mongodb, express, react, and node.js",
+  "description": "Building a virtual soda vending machine using mongodb, express, react, and node.js",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
