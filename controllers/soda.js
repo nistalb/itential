@@ -43,39 +43,47 @@ router.put("/:name", async (req, res) => {
 router.put("/:name/add", (req, res) => {
     const {qty} = req.body;
 
-    db.Soda.findOne({name:req.params.name})
-    .exec(function(err, foundSoda){
-        if (err) return res.send(err);
-        
-        const totalSoda = foundSoda.vendQty + qty;
+    try {
+        db.Soda.findOne({name:req.params.name})
+        .exec(function(err, foundSoda){
+            if (err) return res.send(err);
+            
+            const totalSoda = foundSoda.vendQty + qty;
 
-        if (totalSoda <= foundSoda.maxQty) {
-            foundSoda.vendQty += qty;
-            foundSoda.save();
-            res.json({foundSoda});
-        } else {
-            tooMuchSoda = totalSoda - foundSoda[0].maxQty;
-            res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
-        };
-    });
+            if (totalSoda <= foundSoda.maxQty) {
+                foundSoda.vendQty += qty;
+                foundSoda.save();
+                res.json({foundSoda});
+            } else {
+                tooMuchSoda = totalSoda - foundSoda[0].maxQty;
+                res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
+            };
+        });
+    } catch(err) {
+        return res.send(err);
+    };
  });
 
 // remove a soda from vend machine
 router.put("/:name/remove", (req, res) => {
 
-    db.Soda.findOne({name:req.params.name})
-    .exec(function(err, foundSoda){
-        if (err) return res.send(err);
-        
-        const sodaQty = foundSoda.vendQty -= 1;
+    try{
+        db.Soda.findOne({name:req.params.name})
+        .exec(function(err, foundSoda){
+            if (err) return res.send(err);
+            
+            const sodaQty = foundSoda.vendQty -= 1;
 
-        if (sodaQty < 0) {
-            res.json({message: 'Sorry, We are out of that flavor'})
-        } else {
-            foundSoda.save();
-            res.json({foundSoda})
-        }
-    });
+            if (sodaQty < 0) {
+                res.json({message: 'Sorry, We are out of that flavor'});
+            } else {
+                foundSoda.save();
+                res.json({foundSoda});
+            };
+        });
+    } catch(err) {
+        return res.send(err);
+    }  
 });
 
 // delete soda
