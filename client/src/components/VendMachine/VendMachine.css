@@ -1,0 +1,25 @@
+#home_div {
+    background-color: red;
+    background-image: url(./bricks.jpg);
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+}
+
+#machine {
+    background-color: rgb(221, 155, 155);
+    background-image: url(./soda.jpg);
+    background-repeat: none;
+    background-size: cover;
+    border: 8px solid rgba(0,0,0,0.8);
+    height: 75vh;
+    width: 400px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -200px;
+    border-radius: 10px 10px 0 0;
+    -webkit-box-shadow: 6px 15px 20px 1px rgba(0,0,0,0.9); 
+    box-shadow: 6px 15px 20px 1px rgba(0,0,0,0.9);
+}

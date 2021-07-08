@@ -1,5 +1,5 @@
 import React from "react";
-import VendMachine from "./components/VendMachine"
+import VendMachine from "./components/VendMachine/VendMachine"
 import './App.css';
 
 function App() {

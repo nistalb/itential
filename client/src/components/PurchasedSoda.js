@@ -8,8 +8,8 @@ const PurchasedSoda = (boughtSoda) => {
         <div> 
             { bought ? (
                     <div>
-                        <p>{bought.foundSoda[0].name}</p>
-                        <p>{bought.foundSoda[0].description}</p>
+                        <p>{bought.foundSoda.name}</p>
+                        <p>{bought.foundSoda.description}</p>
                     </div>
                 
             ):(

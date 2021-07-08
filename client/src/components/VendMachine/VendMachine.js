@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 import axios from "axios";
+import Container from "react-bootstrap/Container"
 
-import ListSoda from "./ListSoda"
-import PurchasedSoda from "./PurchasedSoda"
-import AddMoney from "./AddMoney"
+import ListSoda from "../ListSoda"
+import PurchasedSoda from "../PurchasedSoda"
+import AddMoney from "../AddMoney"
+
+// css
+import "./VendMachine.css"
 
 class VendMachine extends Component {
 
@@ -58,12 +62,13 @@ class VendMachine extends Component {
         let {sodas, boughtSoda} = this.state;
         
         return(
-            <div>
-                <h1>Hello World!</h1>
-                <AddMoney />
-                <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} />
-                <PurchasedSoda boughtSoda={boughtSoda} />
-            </div>
+            <Container fluid id="home_div">
+                <div id="machine">
+                    <AddMoney />
+                    <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} />
+                    <PurchasedSoda boughtSoda={boughtSoda} />
+                </div>
+            </Container>
         )
     }
 }
