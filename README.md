@@ -46,6 +46,26 @@ Complete the following steps in the command line interface (CLI).
 Once installation is completed, you can run `npm run dev` to start the application.  You will be able to access the app at localhost:3000.
 
 ## API
+Interfacing with the ColaCo API can be performed with Insomnia API client or a similar API client.  Routes and body data, if any, are described below.
+
+**Show all Sodas**
+- Type of request: `Get`
+- Route: `localhost:5000/soda`
+- Body Data: `none`
+
+**Create Soda**
+- Type of request: `POST`
+- Route: `localhost:5000/soda`
+- Body Data: 
+    ```
+    {"name": "New Soda",
+    "description": "That is a tasty beverage!",
+    "cost": 1,
+    "maxQty": 100,
+    "vendQty": 0,
+    "promo": {"isPromo": false, "cost": 0, "startDate": null, "endDate": null}
+    }
+    ```
 
 
 ## License
