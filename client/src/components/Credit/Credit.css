@@ -6,8 +6,8 @@
     line-height: 35px;
     border-radius: 10px;
     border: 1px solid black;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: auto;
+    margin-top: 60px;
     -webkit-box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);
     -moz-box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);
     box-shadow: inset 10px 10px 29px 0px rgba(0,0,0,0.6);

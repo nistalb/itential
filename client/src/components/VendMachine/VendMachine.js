@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 
 // Bootstrap
-import Container from "react-bootstrap/Container"
+import {Container, Row, Col} from "react-bootstrap"
 
 // Components
 import ListSoda from "../ListSoda/ListSoda"
@@ -73,13 +73,20 @@ class VendMachine extends Component {
         
         return(
             <Container fluid id="home_div">
-                <div id="machine">
-                    <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} removeCredit={this.removeCredit}/>
-                    <PurchasedSoda boughtSoda={boughtSoda} />
-                    <Credit credit={credit} />
-                </div>
-                <AddMoney addCredit={this.addCredit}/>
+                <Row id="homeRow">
+                    <Col id="moneyCol">
+                        <AddMoney addCredit={this.addCredit}/>
+                    </Col>
+                    <Col id="machineCol">
+                        <div id="machine">
+                            <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} removeCredit={this.removeCredit}/>
+                            <Credit credit={credit} />
+                            <PurchasedSoda boughtSoda={boughtSoda} />
+                        </div>
+                    </Col>
+                </Row>                               
             </Container>
+            
         );
     };
 };

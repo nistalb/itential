@@ -7,4 +7,7 @@
     height: 80px;
     cursor: pointer;
     padding-top: 100px;
+    margin: auto;
+    /* margin-bottom: 50px;
+    margin-top: 30px; */
 }
