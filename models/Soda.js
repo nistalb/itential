@@ -7,7 +7,7 @@ const sodaSchema = new mongoose.Schema({
     cost: { type: Number, min: 0, default: 0, required: true },
     maxQty: { type: Number, min: 0, default: 0, required: true },
     vendQty: { type: Number, min: 0, default: 0, required: true },
-    promo: {isPromo: Boolean, cost: Number, startDate: Date, endDate: Date}
+    promo: {isPromo: Boolean, cost: Number, startDate: { type: Date, default: Date.now}, endDate: { type: Date, default: Date.now}}
 },
 {timestamps: true}
 );
