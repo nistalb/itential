@@ -1,7 +1,5 @@
 # <p align="center">Virtual Soda Machine</p>
 
-
-
 ## About the Project
 This project creates a virtual soda machine for a fictional ColaCo that wants to vend its four soda flavors.  The vending machine has the look and feel of a traditional soda machine and dispenses a representation of the soda that was purchased.  Users must add money to the vending machine to buy a soda, each of which has a price listed.
 
@@ -27,21 +25,27 @@ The technologies that I used in this project were:
 1. Nodemon
 
 ## Installation
-Prior to beginning installation the local machine must have [MongoDB](https://www.mongodb.com/) and [NodeJs](https://nodejs.org/en/) installed.  
+Prior to beginning installation of this app, your local machine must have [MongoDB](https://www.mongodb.com/) and [NodeJs](https://nodejs.org/en/) installed.  
 
-Complete the following steps in Terminal.
-1. Clone the repo to you local machine: *git clone git@github.com:nistalb/itential.git*
-1. Change directory into the itential directory: *cd itential*
-1. Install all dependencies from the package.json file: *npm install*
-1. Change directory into client directory: *cd client*
-1. Install all dependencies from the package.json file: *npm install*
-1. Change directory into the itential directory: *cd ..*
-1. Create a .env file: *touch .env*
-    1. Open the .env file: *open .env*
-    1. Add: `PORT=5000`
+Complete the following steps in the command line interface (CLI).
+1. Clone the repo to you local machine: 
+`git clone git@github.com:nistalb/itential.git`
+1. Change directory into the itential directory: `cd itential`
+1. Install all dependencies from the package.json file: `npm install`
+1. Change directory into client directory: `cd client`
+1. Install all dependencies from the package.json file: `npm install`
+1. Change directory into the itential directory: `cd ..`
+1. Create a .env file: `touch .env`
+    1. Open the .env file: `open .env`
+    1. Type in: `PORT=5000`
     1. Save the file.
 1. Seed data may be added to the database using the following command or it may be added via Insomnia or similar API client using the instructions in the API section of this Readme.
-    1. *mongoimport seed_data/soda.json -d itentialdb -c sodas --drop*
+    1. `mongoimport seed_data/soda.json -d itentialdb -c sodas --drop`
+
+## Usage 
+Once installation is completed, you can run `npm run dev` to start the application.  You will be able to access the app at localhost:3000.
+
+## API
 
 
 ## License
