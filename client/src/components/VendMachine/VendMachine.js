@@ -37,8 +37,8 @@ class VendMachine extends Component {
             .catch(err => console.log(err))
     };
 
-    purchaseSoda = (name) => {
-        if (this.state.credit >= 1) {
+    purchaseSoda = (name, qty) => {
+        if (this.state.credit >= 1 && qty != 0) {
             axios.put(`http://localhost:5000/soda/${name}/remove`)
             .then(res => {
                 if(res.data){
@@ -59,8 +59,8 @@ class VendMachine extends Component {
         });
     };
 
-    removeCredit = (cost) => {
-        if (this.state.credit > 0) {
+    removeCredit = (cost, qty) => {
+        if (this.state.credit > 0 && qty != 0) {
             let credits = this.state.credit - cost
             this.setState({
                 credit: credits
