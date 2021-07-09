@@ -46,10 +46,10 @@ Complete the following steps in the command line interface (CLI).
 Once installation is completed, you can run `npm run dev` to start the application.  You will be able to access the app at localhost:3000.
 
 ## API
-Interfacing with the ColaCo API can be performed with Insomnia API client or a similar API client.  Routes and body data, if any, are described below.
+Interfacing with the ColaCo API can be performed with the Insomnia API client or a similar API client.  Routes and body data, if any, are described below.
 
 **Show all Sodas**
-- Type of request: `Get`
+- Type of request: `GET`
 - Route: `localhost:5000/soda`
 - Body Data: `none`
 
@@ -67,6 +67,29 @@ Interfacing with the ColaCo API can be performed with Insomnia API client or a s
     }
     ```
 
+**Update Soda**
+- Type of request: `PUT`
+- Route: `localhost:5000/soda/{name}` where {name} is the name of the soda
+- Body Data: 
+    ```
+    {"name": "New Soda",
+    "description": "That is a tasty beverage!",
+    "cost": 2,
+    "maxQty": 100,
+    "vendQty": 0,
+    "promo": {"isPromo": false, "cost": 0, "startDate": null, "endDate": null}
+    }
+    ```
+
+**Delete Soda**
+- Type of request: `DELETE`
+- Route: `localhost:5000/soda/{name}` where {name} is the name of the soda
+- Body Data: `none`
+
+**Add Soda To Vend Machine**
+- Type of request: `PUT`
+- Route: `localhost:5000/soda/{name}/add` where {name} is the name of the soda
+- Body Data: `{"qyt": 50}`
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
