@@ -6,7 +6,7 @@ import {Container, Row, Col} from "react-bootstrap"
 
 // Components
 import ListSoda from "../ListSoda/ListSoda"
-import PurchasedSoda from "../PurchasedSoda/PurchasedSoda"
+import PurchaseChute from "../PurchaseChute/PurchaseChute"
 import AddMoney from "../AddMoney/AddMoney"
 import Credit from "../Credit/Credit"
 
@@ -38,7 +38,7 @@ class VendMachine extends Component {
     };
 
     purchaseSoda = (name, qty) => {
-        if (this.state.credit >= 1 && qty != 0) {
+        if (this.state.credit >= 1 && qty !== 0) {
             axios.put(`http://localhost:5000/soda/${name}/remove`)
             .then(res => {
                 if(res.data){
@@ -60,7 +60,7 @@ class VendMachine extends Component {
     };
 
     removeCredit = (cost, qty) => {
-        if (this.state.credit > 0 && qty != 0) {
+        if (this.state.credit > 0 && qty !== 0) {
             let credits = this.state.credit - cost
             this.setState({
                 credit: credits
@@ -81,7 +81,7 @@ class VendMachine extends Component {
                         <div id="machine">
                             <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} removeCredit={this.removeCredit}/>
                             <Credit credit={credit} />
-                            <PurchasedSoda boughtSoda={boughtSoda} />
+                            <PurchaseChute boughtSoda={boughtSoda} />
                         </div>
                     </Col>
                 </Row>                               

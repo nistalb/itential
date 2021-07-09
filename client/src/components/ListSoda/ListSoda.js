@@ -15,9 +15,9 @@ const ListSoda = ({sodas, purchaseSoda, removeCredit}) => {
                 allSoda && allSoda.length > 0 ? (
                     (allSoda.map(soda => {
                      return (
-                        <Row className="sodaRow">
+                        <Row key={soda._id} className="sodaRow">
                             <Col xs={8}>
-                                <div key={soda._id} className="sodaDescription">
+                                <div  className="sodaDescription">
                                     <p>{soda.name}</p>
                                     <p>Qty: {soda.vendQty}</p>
                                 </div>

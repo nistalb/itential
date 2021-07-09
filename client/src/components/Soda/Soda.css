@@ -1,0 +1,13 @@
+#soda {
+    background-color: white;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#soda p {
+    margin: 0 auto;
+    margin-top: 30px;
+}
