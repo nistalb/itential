@@ -1,6 +1,6 @@
 #sodaButtons {
     width: 300px;
-    height: fit-content;
+    min-height: 255px;
     margin: 0 auto;
     margin-top: 60px;
 }
@@ -14,8 +14,7 @@ Button {
 
 .sodaRow {
     margin: 20px 0 20px 0;
-    height: fit-content;
-    
+    height: fit-content;  
 }
 
 .sodaDescription {
