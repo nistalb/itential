@@ -6,18 +6,24 @@ import Soda from "../Soda/Soda"
 
 class PurchaseChute extends Component {
 
+    state = {
+        showSoda: false,
+    };
+
+    
+    
     render() {
         let bought = this.props.boughtSoda;
         
         if (bought) {
             return (
-                <div id="purchaseChute"> 
+                <div class="purchaseChute"> 
                     <Soda boughtSoda={bought.foundSoda.name} />
                 </div>
             );
         } else {
             return (
-                <div id="purchaseChute"></div>
+                <div class="purchaseChute"></div>
             );
         };
     };

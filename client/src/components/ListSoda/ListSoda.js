@@ -27,7 +27,7 @@ const ListSoda = ({sodas, purchaseSoda, removeCredit}) => {
                                     type="button" 
                                     variant="primary" 
                                     onClick={() => {
-                                        purchaseSoda(soda.name, soda.vendQty); 
+                                        purchaseSoda(soda.name, soda.vendQty, soda.cost); 
                                         removeCredit(soda.cost, soda.vendQty);}}
                                 >${soda.cost}</Button>
                             </Col>
