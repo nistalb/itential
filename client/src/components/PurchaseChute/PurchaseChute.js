@@ -9,7 +9,7 @@ const PurchaseChute = ({boughtSoda, setBoughtSoda}) => {
     if(boughtSoda) {
         return (
             <div className="purchaseChute"> 
-                <Soda boughtSoda={boughtSoda.foundSoda.name} removeSoda={setBoughtSoda}/>
+                <Soda boughtSoda={boughtSoda.foundSoda.name} setBoughtSoda={setBoughtSoda}/>
             </div>
         );
     } else {

@@ -2,11 +2,11 @@ import React from 'react'
 
 import "./Soda.css"
 
-const Soda = ({boughtSoda, removeSoda}) => {
+const Soda = ({boughtSoda, setBoughtSoda}) => {
     
     return (
         <div id="soda" onClick={() => {
-            removeSoda(null)}} >
+            setBoughtSoda(null)}} >
             <p>{boughtSoda}</p>
         </div>
     )
