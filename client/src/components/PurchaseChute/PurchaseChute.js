@@ -1,31 +1,21 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 
 import "./PurchaseChute.css"
 
 import Soda from "../Soda/Soda"
 
-class PurchaseChute extends Component {
+const PurchaseChute = ({boughtSoda, setBoughtSoda}) => {
 
-    state = {
-        showSoda: false,
-    };
-
-    
-    
-    render() {
-        let bought = this.props.boughtSoda;
-        
-        if (bought) {
-            return (
-                <div class="purchaseChute"> 
-                    <Soda boughtSoda={bought.foundSoda.name} />
-                </div>
-            );
-        } else {
-            return (
-                <div class="purchaseChute"></div>
-            );
-        };
+    if(boughtSoda) {
+        return (
+            <div className="purchaseChute"> 
+                <Soda boughtSoda={boughtSoda.foundSoda.name} removeSoda={setBoughtSoda}/>
+            </div>
+        );
+    } else {
+        return (
+            <div className="purchaseChute"></div>
+        );
     };
 };
 

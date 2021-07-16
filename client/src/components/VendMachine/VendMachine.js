@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 // Bootstrap
@@ -13,82 +13,63 @@ import Credit from "../Credit/Credit"
 // css
 import "./VendMachine.css"
 
-class VendMachine extends Component {
+const VendMachine = () => {
 
-    state = {
-        sodas: [],
-        boughtSoda: null,
-        credit: 0
-    };
+    const [sodas, setSodas] = useState([]);
+    const [boughtSoda, setBoughtSoda] = useState(null);
+    const [credit, setCredit] = useState(0)
+    
 
-    componentDidMount(){
-        this.getSodas();
-    };
-
-    getSodas = () => {
+    useEffect(() => {
         axios.get('http://localhost:5000/soda')
             .then(res => {
                 if(res.data){
-                    this.setState({
-                        sodas: res.data
-                    });
-                };
+                    setSodas(res.data)
+                    };
             })
             .catch(err => console.log(err))
-    };
+    });
 
-    purchaseSoda = (name, qty, cost) => {
-        if (this.state.credit >= cost && qty !== 0) {
+    const purchaseSoda = (name, qty, cost) => {
+        if (credit >= cost && qty !== 0) {
             axios.put(`http://localhost:5000/soda/${name}/remove`)
             .then(res => {
                 if(res.data){
-                    this.setState({
-                        boughtSoda: res.data
-                    });
-                    this.getSodas();
+                    setBoughtSoda(res.data);
                 };
             })
             .catch(err => console.log(err));
         };
     };
 
-    addCredit = () => {
-        let credits = this.state.credit + 1
-        this.setState({
-            credit: credits
-        });
+    const addCredit = () => {
+        setCredit(credit + 1);
     };
 
-    removeCredit = (cost, qty) => {
-        if (this.state.credit >= cost && qty !== 0) {
-            let credits = this.state.credit - cost
-            this.setState({
-                credit: credits
-            });
+    const removeCredit = (cost, qty) => {
+        if (credit >= cost && qty !== 0) {
+            setCredit(credit - cost);
         };
     };
 
-    render() {
-        let {sodas, boughtSoda, credit} = this.state;
+    return(
+        <Container fluid id="home_div">
+            <Row id="homeRow">
+                <Col id="moneyCol">
+                    <AddMoney addCredit={addCredit}/>
+                </Col>
+                <Col id="machineCol">
+                    <div id="machine">
+                        <ListSoda sodas={sodas} purchaseSoda={purchaseSoda} removeCredit={removeCredit}/>
+                        <Credit credit={credit} />
+                        <PurchaseChute boughtSoda={boughtSoda} setBoughtSoda={setBoughtSoda} />
+                    </div>
+                </Col>
+            </Row>                               
+        </Container>
         
-        return(
-            <Container fluid id="home_div">
-                <Row id="homeRow">
-                    <Col id="moneyCol">
-                        <AddMoney addCredit={this.addCredit}/>
-                    </Col>
-                    <Col id="machineCol">
-                        <div id="machine">
-                            <ListSoda sodas={sodas} purchaseSoda={this.purchaseSoda} removeCredit={this.removeCredit}/>
-                            <Credit credit={credit} />
-                            <PurchaseChute boughtSoda={boughtSoda} />
-                        </div>
-                    </Col>
-                </Row>                               
-            </Container>
-            
-        );
-    };
+    );
+
 };
 
 export default VendMachine;
