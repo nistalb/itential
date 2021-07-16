@@ -9,7 +9,8 @@ const db = require("../models");
 router.get("/", async (req, res) => {
     
     try {
-        const sodas = await db.Soda.find({});
+        const sodas = await db.Soda.find({}).lean();
+        // .lean() returns JSON objects instead of memory and resource heavy documents
         res.json({sodas});
     } catch(err) {
         return res.send(err)
@@ -31,7 +32,7 @@ router.post("/", async (req, res) => {
 router.put("/:name", async (req, res) => {
 
     try {
-        const updatedSoda = await db.Soda.findOneAndUpdate({name:req.params.name}, req.body, {new: true});
+        const updatedSoda = await db.Soda.findOneAndUpdate({name:req.params.name}, req.body, {new: true}).lean();
         return res.json({updatedSoda});
     } catch(err) {
         return res.send(err);
