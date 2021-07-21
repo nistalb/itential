@@ -25,5 +25,8 @@ app.use(express.json());
 // soda controller
 app.use("/soda", controllers.soda);
 
+// vending machine controller
+app.use("/vend", controllers.vend);
+
 /* == Server Listener == */
 app.listen(PORT);

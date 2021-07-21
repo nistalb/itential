@@ -1,3 +1,4 @@
 module.exports = {
-    soda: require("./soda")
+    soda: require("./soda"),
+    vend: require("./vend")
 };

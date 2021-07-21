@@ -23,5 +23,6 @@ mongoose.connection.on("disconnected", function(){
 });
 
 module.exports= {
-    Soda: require("./Soda")
+    Soda: require("./Soda"),
+    VendMachine: require("./VendMachine")
 };
