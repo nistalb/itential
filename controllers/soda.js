@@ -46,20 +46,20 @@ router.put("/:name/add", (req, res) => {
 
     try {
         db.Soda.findOne({name:req.params.name})
-        .exec(function(err, foundSoda){
-            if (err) return res.send(err);
-            
-            const totalSoda = foundSoda.vendQty + qty;
+            .exec(function(err, foundSoda){
+                if (err) return res.send(err);
+                
+                const totalSoda = foundSoda.vendQty + qty;
 
-            if (totalSoda <= foundSoda.maxQty) {
-                foundSoda.vendQty += qty;
-                foundSoda.save();
-                res.json({foundSoda});
-            } else {
-                tooMuchSoda = totalSoda - foundSoda[0].maxQty;
-                res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
-            };
-        });
+                if (totalSoda <= foundSoda.maxQty) {
+                    foundSoda.vendQty += qty;
+                    foundSoda.save();
+                    res.json({foundSoda});
+                } else {
+                    tooMuchSoda = totalSoda - foundSoda[0].maxQty;
+                    res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
+                };
+            });
     } catch(err) {
         return res.send(err);
     };
