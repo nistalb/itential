@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 // create schema for soda documents
 const vendSchema = new mongoose.Schema({
     soda: [ {
-            id: { type: mongoose.Schema.Types.ObjectId, ref: "Soda" },
-            qty: Number
+            id: { type: mongoose.Schema.ObjectId, ref: "Soda" },
+            qty: { type: Number, default: 0}
         }]
 },
 {timestamps: true}

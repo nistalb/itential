@@ -29,4 +29,6 @@ app.use("/soda", controllers.soda);
 app.use("/vend", controllers.vend);
 
 /* == Server Listener == */
-app.listen(PORT);
+app.listen(PORT, function() {
+    console.log('app listening on port ' + PORT);
+});
