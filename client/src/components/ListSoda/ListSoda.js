@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import "./ListSoda.css"
 
 const ListSoda = ({sodas, purchaseSoda, removeCredit}) => {
-    let allSoda = sodas.sodas
+    let allSoda = sodas.foundVend.soda
     
     return (
         <div id="sodaButtons">

@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
             if (err) return res.send(err);
             
             newMachine.soda.push(...allSoda);
+            newMachine.number = 1;
             newMachine.save();
             return res.json({newMachine});
         });
@@ -36,18 +37,18 @@ router.post("/", async (req, res) => {
 });
 
 // show one vending machine and append soda info for display
-router.get("/:vendId", async (req, res) => {
+router.get("/:vendNo", async (req, res) => {
 
     try {
-        const foundVend = await db.VendMachine.findById(req.params.vendId).lean();
+        const foundVend = await db.VendMachine.findOne({number: req.params.vendNo}).lean();
             
         for (i=0; i < foundVend.soda.length; i++) {
             let soda = await db.Soda.findById(foundVend.soda[i]._id).lean();
-            console.log(soda.name)
             foundVend.soda[i].name = soda.name;
             foundVend.soda[i].cost = soda.cost;
             foundVend.soda[i].description = soda.description;
-        }
+        };
+                
         return res.json({foundVend})
             
     } catch(err) {

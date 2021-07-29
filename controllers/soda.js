@@ -40,52 +40,52 @@ router.put("/:name", async (req, res) => {
 });
 
 
-// add to vendQty
-router.put("/:name/add", (req, res) => {
-    const {qty} = req.body;
+// // add to vendQty
+// router.put("/:name/add", (req, res) => {
+//     const {qty} = req.body;
 
-    try {
-        db.Soda.findOne({name:req.params.name})
-            .exec(function(err, foundSoda){
-                if (err) return res.send(err);
+//     try {
+//         db.Soda.findOne({name:req.params.name})
+//             .exec(function(err, foundSoda){
+//                 if (err) return res.send(err);
                 
-                const totalSoda = foundSoda.vendQty + qty;
+//                 const totalSoda = foundSoda.vendQty + qty;
 
-                if (totalSoda <= foundSoda.maxQty) {
-                    foundSoda.vendQty += qty;
-                    foundSoda.save();
-                    res.json({foundSoda});
-                } else {
-                    tooMuchSoda = totalSoda - foundSoda[0].maxQty;
-                    res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
-                };
-            });
-    } catch(err) {
-        return res.send(err);
-    };
- });
+//                 if (totalSoda <= foundSoda.maxQty) {
+//                     foundSoda.vendQty += qty;
+//                     foundSoda.save();
+//                     res.json({foundSoda});
+//                 } else {
+//                     tooMuchSoda = totalSoda - foundSoda[0].maxQty;
+//                     res.send({message: 'You sent too much soda', Remove: tooMuchSoda });
+//                 };
+//             });
+//     } catch(err) {
+//         return res.send(err);
+//     };
+//  });
 
-// remove a soda from vend machine
-router.put("/:name/remove", (req, res) => {
+// // remove a soda from vend machine
+// router.put("/:name/remove", (req, res) => {
 
-    try{
-        db.Soda.findOne({name:req.params.name})
-        .exec(function(err, foundSoda){
-            if (err) return res.send(err);
+//     try{
+//         db.Soda.findOne({name:req.params.name})
+//         .exec(function(err, foundSoda){
+//             if (err) return res.send(err);
             
-            const sodaQty = foundSoda.vendQty -= 1;
+//             const sodaQty = foundSoda.vendQty -= 1;
 
-            if (sodaQty < 0) {
-                res.json({message: 'Sorry, We are out of that flavor'});
-            } else {
-                foundSoda.save();
-                res.json({foundSoda});
-            };
-        });
-    } catch(err) {
-        return res.send(err);
-    }  
-});
+//             if (sodaQty < 0) {
+//                 res.json({message: 'Sorry, We are out of that flavor'});
+//             } else {
+//                 foundSoda.save();
+//                 res.json({foundSoda});
+//             };
+//         });
+//     } catch(err) {
+//         return res.send(err);
+//     }  
+// });
 
 // delete soda
 router.delete("/:name", async (req, res) => {

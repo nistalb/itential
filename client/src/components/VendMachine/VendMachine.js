@@ -15,20 +15,21 @@ import "./VendMachine.css"
 
 const VendMachine = () => {
 
-    const [sodas, setSodas] = useState([]);
+    const [sodas, setSodas] = useState({});
     const [boughtSoda, setBoughtSoda] = useState(null);
     const [credit, setCredit] = useState(0)
     
 
     useEffect(() => {
-        axios.get('http://localhost:5000/soda')
+        axios.get('http://localhost:5000/vend/1')
             .then(res => {
                 if(res.data){
                     setSodas(res.data)
                     };
             })
             .catch(err => console.log(err))
-    });
+        console.log(sodas.foundVend.soda)
+    },[]);
 
     const purchaseSoda = (name, qty, cost) => {
         if (credit >= cost && qty !== 0) {
